@@ -1,0 +1,22 @@
+{
+    "dependencies": [
+        {
+            "class": "ride\\web\\cms\\CmsOrmVarnishApplicationListener",
+            "calls": [
+                {
+                    "method": "__construct",
+                    "arguments": [
+                        {
+                            "name": "baseUrl",
+                            "type": "call",
+                            "properties": {
+                                "interface": "ride\\library\\mvc\\Request",
+                                "method": "getBaseScript"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
