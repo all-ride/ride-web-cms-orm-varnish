@@ -1,0 +1,38 @@
+{
+    "orm.insert.pre": [
+        {
+            "interface": "ride\\web\\cms\\CmsOrmVarnishApplicationListener",
+            "method": "handleOrmAction"
+        }
+    ],
+    "orm.insert.post": [
+        {
+            "interface": "ride\\web\\cms\\CmsOrmVarnishApplicationListener",
+            "method": "handleOrmAction"
+        }
+    ],
+    "orm.update.pre": [
+        {
+            "interface": "ride\\web\\cms\\CmsOrmVarnishApplicationListener",
+            "method": "handleOrmAction"
+        }
+    ],
+    "orm.update.post": [
+        {
+            "interface": "ride\\web\\cms\\CmsOrmVarnishApplicationListener",
+            "method": "handleOrmAction"
+        }
+    ],
+    "orm.delete.pre": [
+        {
+            "interface": "ride\\web\\cms\\CmsOrmVarnishApplicationListener",
+            "method": "handleOrmAction"
+        }
+    ],
+    "orm.delete.post": [
+        {
+            "interface": "ride\\web\\cms\\CmsOrmVarnishApplicationListener",
+            "method": "handleOrmAction"
+        }
+    ]
+}
