@@ -68,6 +68,8 @@ class ChainOrmVarnishInfo implements OrmVarnishInfo {
         foreach ($this->chain as $varnishInfo) {
             $result += $varnishInfo->getOverviewUrls($modelName, $locale, $baseUrl);
         }
+
+        return $result;
     }
 
     /**
@@ -85,6 +87,8 @@ class ChainOrmVarnishInfo implements OrmVarnishInfo {
         foreach ($this->chain as $varnishInfo) {
             $result += $varnishInfo->getDetailUrls($modelName, $entry, $locale, $baseUrl);
         }
+
+        return $result;
     }
 
 }
