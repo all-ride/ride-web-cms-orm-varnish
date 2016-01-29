@@ -1,6 +1,33 @@
 {
     "dependencies": [
         {
+            "interface": "ride\\web\\cms\\orm\\varnish\\OrmVarnishInfo",
+            "class": "ride\\web\\cms\\orm\\varnish\\GenericOrmVarnishInfo",
+            "id": "generic",
+            "tags": ["chain"]
+        },
+        {
+            "interface": "ride\\web\\cms\\orm\\varnish\\OrmVarnishInfo",
+            "class": "ride\\web\\cms\\orm\\varnish\\ChainOrmVarnishInfo",
+            "id": "chain",
+            "calls": [
+                {
+                    "method": "addOrmVarnishInfos",
+                    "arguments": [
+                        {
+                            "name": "ormVarnishInfos",
+                            "type": "dependencies",
+                            "properties": {
+                                "interface": "ride\\web\\cms\\orm\\varnish\\OrmVarnishInfo",
+                                "include": "chain"
+                            }
+                        }
+                    ]
+                }
+
+            ]
+        },
+        {
             "class": "ride\\web\\cms\\CmsOrmVarnishApplicationListener",
             "calls": [
                 {
@@ -12,6 +39,14 @@
                             "properties": {
                                 "interface": "ride\\library\\mvc\\Request",
                                 "method": "getBaseScript"
+                            }
+                        },
+                        {
+                            "name": "ormVarnishInfo",
+                            "type": "dependency",
+                            "properties": {
+                                "interface": "ride\\web\\cms\\orm\\varnish\\OrmVarnishInfo",
+                                "method": "chain"
                             }
                         }
                     ]
