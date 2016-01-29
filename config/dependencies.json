@@ -1,13 +1,13 @@
 {
     "dependencies": [
         {
-            "interface": "ride\\web\\cms\\orm\\varnish\\OrmVarnishInfo",
+            "interfaces": "ride\\web\\cms\\orm\\varnish\\OrmVarnishInfo",
             "class": "ride\\web\\cms\\orm\\varnish\\GenericOrmVarnishInfo",
             "id": "generic",
             "tags": ["chain"]
         },
         {
-            "interface": "ride\\web\\cms\\orm\\varnish\\OrmVarnishInfo",
+            "interfaces": "ride\\web\\cms\\orm\\varnish\\OrmVarnishInfo",
             "class": "ride\\web\\cms\\orm\\varnish\\ChainOrmVarnishInfo",
             "id": "chain",
             "calls": [
@@ -46,7 +46,7 @@
                             "type": "dependency",
                             "properties": {
                                 "interface": "ride\\web\\cms\\orm\\varnish\\OrmVarnishInfo",
-                                "method": "chain"
+                                "id": "chain"
                             }
                         }
                     ]
