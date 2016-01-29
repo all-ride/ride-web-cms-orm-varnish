@@ -11,7 +11,7 @@ use ride\web\cms\Cms;
 /**
  * Getherer of information about the orm widget and nodes
  */
-class OrmVarnishInfo {
+class GenericOrmVarnishInfo implements OrmVarnishInfo {
 
     /**
      * Constructs a new instance
