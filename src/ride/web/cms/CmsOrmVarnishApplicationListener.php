@@ -5,6 +5,7 @@ namespace ride\web\cms;
 use ride\library\event\Event;
 use ride\library\event\EventManager;
 use ride\library\i18n\I18n;
+use ride\library\orm\entry\LocalizedEntry;
 use ride\library\orm\model\GenericModel;
 
 use ride\web\cms\orm\varnish\OrmVarnishInfo;
