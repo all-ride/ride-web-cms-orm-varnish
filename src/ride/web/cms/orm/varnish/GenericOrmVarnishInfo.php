@@ -9,7 +9,7 @@ use ride\web\cms\orm\ContentProperties;
 use ride\web\cms\Cms;
 
 /**
- * Getherer of information about the orm widget and nodes
+ * Gatherer of information about the orm widget and nodes
  */
 class GenericOrmVarnishInfo implements OrmVarnishInfo {
 
