@@ -106,9 +106,25 @@ class CmsOrmVarnishApplicationListener {
      * @return null
      */
     private function gatherDetailUrls(GenericModel $model, $entry) {
-        $locale = $this->getLocale($entry);
+        $locales = $model->getOrmManager()->getLocales();
 
-        $this->banUrls += $this->varnishInfo->getDetailUrls($model->getName(), $entry, $locale, $this->baseUrl);
+        if (!$model->getMeta()->isLocalized()) {
+            foreach ($locales as $locale) {
+                $this->banUrls += $this->varnishInfo->getDetailUrls($model->getName(), $entry, $locale, $this->baseUrl);
+            }
+
+            return;
+        }
+
+        $this->banUrls += $this->varnishInfo->getDetailUrls($model->getName(), $entry, $entry->getLocale(), $this->baseUrl);
+        unset($locales[$entry->getLocale()]);
+
+        foreach ($locales as $locale) {
+            $localizedEntry = $model->getById($entry->getId(), $locale);
+            if ($localizedEntry) {
+                $this->banUrls += $this->varnishInfo->getDetailUrls($model->getName(), $localizedEntry, $locale, $this->baseUrl);
+            }
+        }
     }
 
     /**
@@ -118,22 +134,10 @@ class CmsOrmVarnishApplicationListener {
      * @return null
      */
     private function gatherOverviewUrls(GenericModel $model, $entry) {
-        $locale = $this->getLocale($entry);
-
-        $this->banUrls += $this->varnishInfo->getOverviewUrls($model->getName(), $locale, $this->baseUrl);
-    }
-
-    /**
-     * Gets the locale of the entry
-     * @param \ride\library\orm\entry\Entry $entry
-     * @return string
-     */
-    private function getLocale($entry) {
-        if ($entry instanceof LocalizedEntry) {
-            return $entry->getLocale();
+        $locales = $model->getOrmManager()->getLocales();
+        foreach ($locales as $locale) {
+            $this->banUrls += $this->varnishInfo->getOverviewUrls($model->getName(), $locale, $this->baseUrl);
         }
-
-        return $this->i18n->getLocale()->getCode();
     }
 
 }
