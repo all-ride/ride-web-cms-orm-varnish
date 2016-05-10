@@ -49,11 +49,37 @@ class GenericOrmVarnishInfo implements OrmVarnishInfo {
 
             $url = $node->getUrl($locale, $baseUrl);
 
-            $result[$url] = false;
-            $result[$url . '?'] = true;
+            if ($this->hasDetailForNode($node)) {
+                $result[$url . '/*'] = false;
+                $result[$url . '/*?'] = true;
+            } else {
+                $result[$url] = false;
+                $result[$url . '?'] = true;
+            }
         }
 
         return $result;
+    }
+
+    /**
+     * Checks if there is a orm detail widget on the provided node
+     * @param \ride\library\cms\node\Node $node
+     * @return boolean
+     */
+    private function hasDetailForNode($node) {
+        foreach ($this->info as $modelName => $widgets) {
+            if (!isset($widgets['orm.detail'])) {
+                continue;
+            }
+
+            foreach ($widgets['orm.detail'] as $id => $properties) {
+                if (strpos($id, $node->getId() . '#') === 0) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     /**
