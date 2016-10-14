@@ -1,4 +1,4 @@
-# Ride: Web CMS Varnish ORM
+# Ride: Web CMS ORM Varnish
 
 ORM Varnish integration for the CMS of a Ride web application.
 
