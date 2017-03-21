@@ -8,6 +8,12 @@
         },
         {
             "interfaces": "ride\\web\\cms\\orm\\varnish\\OrmVarnishInfo",
+            "class": "ride\\web\\cms\\orm\\varnish\\AssetOrmVarnishInfo",
+            "id": "asset",
+            "tags": ["chain"]
+        },
+        {
+            "interfaces": "ride\\web\\cms\\orm\\varnish\\OrmVarnishInfo",
             "class": "ride\\web\\cms\\orm\\varnish\\ChainOrmVarnishInfo",
             "id": "chain",
             "calls": [
