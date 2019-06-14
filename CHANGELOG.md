@@ -1,5 +1,9 @@
 # ride-web-cms-orm-varnish
 
+## [1.1.1] - 2019-06-14
+### Updated
+- handle detail urls for new entries as well
+
 ## [1.1.0] - 2017-03-21
 ### Added
 - OrmVarnishInfo implementation for the Asset model

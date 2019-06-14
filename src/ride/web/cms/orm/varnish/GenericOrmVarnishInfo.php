@@ -94,6 +94,10 @@ class GenericOrmVarnishInfo implements OrmVarnishInfo {
     public function getDetailUrls($modelName, $entry, $locale, $baseUrl) {
         $result = array();
 
+        if (!$entry->getId()) {
+            return $result;
+        }
+
         $info = $this->getInfo($modelName);
         if (isset($info['orm.detail']) && $entry instanceof EntryProxy) {
             foreach ($info['orm.detail'] as $meta) {
