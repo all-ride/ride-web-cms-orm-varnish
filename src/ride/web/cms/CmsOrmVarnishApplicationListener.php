@@ -46,6 +46,7 @@ class CmsOrmVarnishApplicationListener {
         $entry = $event->getArgument('entry');
 
         switch ($event->getName()) {
+            case GenericModel::EVENT_INSERT_PRE:
             case GenericModel::EVENT_UPDATE_PRE:
             case GenericModel::EVENT_DELETE_PRE:
                 // gather detail urls
